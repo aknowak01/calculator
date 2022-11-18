@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'evaluate.dart';
 import 'calculate.dart';
 import 'custombutton.dart';
 
@@ -16,30 +16,30 @@ class _CalculateLandscapeState extends State<CalculateLandscape> {
   _CalculateLandscapeState(this._str);
 
   void _update(String val){
-    Compute.add(val);
+    evaluate.add(val);
     setState(() {
-      this._str = Compute.str;
+      this._str = evaluate.str;
     });
   }
 
   void _clear(){
-    Compute.clear();
+    evaluate.clear();
     setState(() {
-      this._str = Compute.str;
+      this._str = evaluate.str;
     });
   }
 
   void _delete(){
-    Compute.delete();
+    evaluate.delete();
     setState(() {
-      this._str = Compute.str;
+      this._str = evaluate.str;
     });
   }
   void compute(){
-    if(Compute.str.compareTo('0') != 0){
+    if(evaluate.str.compareTo('0') != 0){
       setState(() {
-        this._str = Compute.computer();
-        Compute.str = this._str;
+        this._str = evaluate().equalPressed();
+        evaluate.str = this._str;
       });
     }
   }
@@ -47,7 +47,7 @@ class _CalculateLandscapeState extends State<CalculateLandscape> {
   void initState(){
     super.initState();
     setState(() {
-      this._str = Compute.str;
+      this._str = evaluate.str;
     });
   }
   @override
@@ -121,7 +121,7 @@ class _CalculateLandscapeState extends State<CalculateLandscape> {
                 CustomButton('2', (){_update('2');}, 3, Colors.grey),
                 CustomButton('3', (){_update('3');}, 3, Colors.grey),
                 CustomButton('+', (){_update('+');}, 3, Colors.grey),
-                CustomButton('Pi', (){_update('*3,14');}, 3, Colors.grey),
+                CustomButton('Pi', (){_update('3,14');}, 3, Colors.grey),
               ],
             ),
           ), Expanded(
@@ -130,10 +130,10 @@ class _CalculateLandscapeState extends State<CalculateLandscape> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 CustomButton('0', (){_update('0');}, 3, Colors.grey),
-                CustomButton(',', (){_update(',');}, 3, Colors.grey),
+                CustomButton('.', (){_update('.');}, 3, Colors.grey),
                 CustomButton('=', (){compute();}, 3, Colors.grey),
-                CustomButton('%', (){_update(',');}, 3, Colors.grey),
-                CustomButton('+/-', (){}, 3, Colors.grey),
+                CustomButton('%', (){_update('%');}, 3, Colors.grey),
+                CustomButton('!', (){_update('!');}, 3, Colors.grey),
               ],
             ),
           ),

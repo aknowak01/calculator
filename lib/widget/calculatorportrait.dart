@@ -1,5 +1,6 @@
 import 'package:calculator/widget/custombutton.dart';
 import 'package:flutter/material.dart';
+import 'evaluate.dart';
 
 import 'calculate.dart';
 
@@ -17,30 +18,30 @@ class _CalculatePortraitState extends State<CalculatePortrait> {
   _CalculatePortraitState(this._str);
 
   void _update(String val){
-    Compute.add(val);
+    evaluate.add(val);
     setState(() {
-      this._str = Compute.str;
+      this._str = evaluate.str;
     });
   }
 
   void _clear(){
-    Compute.clear();
+    evaluate.clear();
     setState(() {
-      this._str = Compute.str;
+      this._str = evaluate.str;
     });
   }
 
   void _delete(){
-    Compute.delete();
+    evaluate.delete();
     setState(() {
-      this._str = Compute.str;
+      this._str = evaluate.str;
     });
   }
   void compute(){
-    if(Compute.str.compareTo('0') != 0){
+    if(evaluate.str.compareTo('0') != 0){
       setState(() {
-        this._str = Compute.computer();
-        Compute.str = this._str;
+        this._str = evaluate().equalPressed();
+        evaluate.str = this._str;
       });
     }
   }
@@ -48,7 +49,7 @@ class _CalculatePortraitState extends State<CalculatePortrait> {
   void initState(){
     super.initState();
     setState(() {
-      this._str = Compute.str;
+      this._str = evaluate.str;
     });
   }
 
@@ -127,7 +128,7 @@ class _CalculatePortraitState extends State<CalculatePortrait> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 CustomButton('0', (){_update('0');}, 6, Colors.grey),
-                CustomButton(',', (){_update(',');}, 3, Colors.grey),
+                CustomButton('.', (){_update('.');}, 3, Colors.grey),
                 CustomButton('=', (){compute();}, 3, Colors.grey),
               ],
             ),
