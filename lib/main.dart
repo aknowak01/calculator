@@ -1,6 +1,7 @@
 import 'package:calculator/widget/calculate.dart';
 import 'package:calculator/widget/calculatorlandscape.dart';
 import 'package:calculator/widget/calculatorportrait.dart';
+import 'package:calculator/widget/evaluate.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -38,7 +39,7 @@ class _CalculatorState extends State<Calculator> {
   @override
   void initState() {
     super.initState();
-    _str = Compute.str;
+    _str = evaluate.str;
   }
   @override
   Widget build(BuildContext context) {
