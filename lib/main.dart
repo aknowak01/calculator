@@ -1,4 +1,3 @@
-import 'package:calculator/widget/calculate.dart';
 import 'package:calculator/widget/calculatorlandscape.dart';
 import 'package:calculator/widget/calculatorportrait.dart';
 import 'package:calculator/widget/evaluate.dart';
@@ -40,14 +39,14 @@ class _CalculatorState extends State<Calculator> {
   @override
   void initState() {
     super.initState();
-    _str = evaluate.str;
+    _str = Evaluate.str;
   }
   @override
   Widget build(BuildContext context) {
     final mediaquery = MediaQuery.of(context);
     if(mediaquery.orientation == Orientation.landscape){
-      return CalculateLandscape(ttile: widget.title, str: this._str, key: widget.key);
+      return CalculateLandscape(ttile: widget.title, str: _str, key: widget.key);
     }
-    return CalculatePortrait(ttile: widget.title, str: this._str, key: widget.key);
+    return CalculatePortrait(ttile: widget.title, str: _str, key: widget.key);
   }
 }

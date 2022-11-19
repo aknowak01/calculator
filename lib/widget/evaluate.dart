@@ -1,7 +1,6 @@
 import 'package:math_expressions/math_expressions.dart';
-import 'package:flutter/material.dart';
 
-class evaluate{
+class Evaluate{
   static String str = '0';
   bool isOperator(String x) {
     if(x == '/' || x == 'x' || x == '-' || x == '+' || x == '=' ){

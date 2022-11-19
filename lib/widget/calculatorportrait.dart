@@ -2,15 +2,13 @@ import 'package:calculator/widget/custombutton.dart';
 import 'package:flutter/material.dart';
 import 'evaluate.dart';
 
-import 'calculate.dart';
-
 class CalculatePortrait extends StatefulWidget {
   final String str;
   final String ttile;
 
-  CalculatePortrait({ Key? key, required this.ttile, required this.str});
+  const CalculatePortrait({super.key, required this.ttile, required this.str});
   @override
-  _CalculatePortraitState createState() => _CalculatePortraitState(this.str);
+  _CalculatePortraitState createState() => _CalculatePortraitState(str);
 
 }
 class _CalculatePortraitState extends State<CalculatePortrait> {
@@ -18,30 +16,30 @@ class _CalculatePortraitState extends State<CalculatePortrait> {
   _CalculatePortraitState(this._str);
 
   void _update(String val){
-    evaluate.add(val);
+    Evaluate.add(val);
     setState(() {
-      this._str = evaluate.str;
+      _str = Evaluate.str;
     });
   }
 
   void _clear(){
-    evaluate.clear();
+    Evaluate.clear();
     setState(() {
-      this._str = evaluate.str;
+      _str = Evaluate.str;
     });
   }
 
   void _delete(){
-    evaluate.delete();
+    Evaluate.delete();
     setState(() {
-      this._str = evaluate.str;
+      _str = Evaluate.str;
     });
   }
   void compute(){
-    if(evaluate.str.compareTo('0') != 0){
+    if(Evaluate.str.compareTo('0') != 0){
       setState(() {
-        this._str = evaluate().equalPressed();
-        evaluate.str = this._str;
+        _str = Evaluate().equalPressed();
+        Evaluate.str = _str;
       });
     }
   }
@@ -49,7 +47,7 @@ class _CalculatePortraitState extends State<CalculatePortrait> {
   void initState(){
     super.initState();
     setState(() {
-      this._str = evaluate.str;
+      _str = Evaluate.str;
     });
   }
 
@@ -67,11 +65,11 @@ class _CalculatePortraitState extends State<CalculatePortrait> {
            child: Container(
              alignment: Alignment.bottomRight,
              child: Padding(
-               padding: EdgeInsets.fromLTRB(15, 15, 15, 30),
+               padding: const EdgeInsets.fromLTRB(15, 15, 15, 30),
                child: Text(
                    _str,
                  textScaleFactor: 3.0,
-                 style: TextStyle(fontSize: 20),
+                 style: const TextStyle(fontSize: 20),
                  textAlign: TextAlign.right,
                ),
              ),

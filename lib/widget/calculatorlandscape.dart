@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'evaluate.dart';
-import 'calculate.dart';
 import 'custombutton.dart';
 
 class CalculateLandscape extends StatefulWidget {
   final String str;
   final String ttile;
-  CalculateLandscape({ Key? key, required this.ttile, required this.str});
+  const CalculateLandscape({super.key, required this.ttile, required this.str});
   @override
-  _CalculateLandscapeState createState() => _CalculateLandscapeState(this.str);
+  _CalculateLandscapeState createState() => _CalculateLandscapeState(str);
 
 }
 class _CalculateLandscapeState extends State<CalculateLandscape> {
@@ -16,30 +15,30 @@ class _CalculateLandscapeState extends State<CalculateLandscape> {
   _CalculateLandscapeState(this._str);
 
   void _update(String val){
-    evaluate.add(val);
+    Evaluate.add(val);
     setState(() {
-      this._str = evaluate.str;
+      _str = Evaluate.str;
     });
   }
 
   void _clear(){
-    evaluate.clear();
+    Evaluate.clear();
     setState(() {
-      this._str = evaluate.str;
+      _str = Evaluate.str;
     });
   }
 
   void _delete(){
-    evaluate.delete();
+    Evaluate.delete();
     setState(() {
-      this._str = evaluate.str;
+      _str = Evaluate.str;
     });
   }
   void compute(){
-    if(evaluate.str.compareTo('0') != 0){
+    if(Evaluate.str.compareTo('0') != 0){
       setState(() {
-        this._str = evaluate().equalPressed();
-        evaluate.str = this._str;
+        _str = Evaluate().equalPressed();
+        Evaluate.str = _str;
       });
     }
   }
@@ -47,7 +46,7 @@ class _CalculateLandscapeState extends State<CalculateLandscape> {
   void initState(){
     super.initState();
     setState(() {
-      this._str = evaluate.str;
+      _str = Evaluate.str;
     });
   }
   @override
@@ -64,11 +63,11 @@ class _CalculateLandscapeState extends State<CalculateLandscape> {
             child: Container(
               alignment: Alignment.bottomRight,
               child: Padding(
-                padding: EdgeInsets.fromLTRB(15, 15, 15, 30),
+                padding: const EdgeInsets.fromLTRB(15, 15, 15, 30),
                 child: Text(
                   _str,
                   textScaleFactor: 3.0,
-                  style: TextStyle(fontSize: 20),
+                  style: const TextStyle(fontSize: 20),
                   textAlign: TextAlign.right,
                 ),
               ),
@@ -96,7 +95,7 @@ class _CalculateLandscapeState extends State<CalculateLandscape> {
                 CustomButton('8', (){_update('8');}, 3, Colors.grey),
                 CustomButton('9', (){_update('9');}, 3, Colors.grey),
                 CustomButton('*', (){_update('*');}, 3, Colors.grey),
-                CustomButton('10^x', (){_update('10^');}, 3, Colors.grey),
+                CustomButton('y^x', (){_update('^');}, 3, Colors.grey),
               ],
             ),
           ),
