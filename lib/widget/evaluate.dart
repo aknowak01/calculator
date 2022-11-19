@@ -13,7 +13,6 @@ class evaluate{
 
   String equalPressed() {
     String finaluserinput = str;
-    finaluserinput = str.replaceAll('x', '*');
 
     Parser p = Parser();
     Expression exp = p.parse(finaluserinput);

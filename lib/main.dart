@@ -15,13 +15,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Calculator',
+      debugShowCheckedModeBanner: false,
+      title: ' ',
       theme: ThemeData(
 
         primarySwatch: Colors.blue,
       ),
       darkTheme: ThemeData.dark(),
-      home: const Calculator(title: 'Calculator'),
+      home: const Calculator(title: ' '),
     );
   }
 }
