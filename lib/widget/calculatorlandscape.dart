@@ -7,7 +7,7 @@ class CalculateLandscape extends StatefulWidget {
   final String ttile;
   const CalculateLandscape({super.key, required this.ttile, required this.str});
   @override
-  _CalculateLandscapeState createState() => _CalculateLandscapeState(str);
+  createState() => _CalculateLandscapeState(str);
 
 }
 class _CalculateLandscapeState extends State<CalculateLandscape> {

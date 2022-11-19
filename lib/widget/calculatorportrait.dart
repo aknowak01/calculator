@@ -8,7 +8,7 @@ class CalculatePortrait extends StatefulWidget {
 
   const CalculatePortrait({super.key, required this.ttile, required this.str});
   @override
-  _CalculatePortraitState createState() => _CalculatePortraitState(str);
+  createState() => _CalculatePortraitState(str);
 
 }
 class _CalculatePortraitState extends State<CalculatePortrait> {

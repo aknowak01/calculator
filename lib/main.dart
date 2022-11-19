@@ -31,7 +31,7 @@ class Calculator extends StatefulWidget {
   final String title;
 
   @override
-  _CalculatorState createState() => _CalculatorState();
+  createState() => _CalculatorState();
 }
 
 class _CalculatorState extends State<Calculator> {
