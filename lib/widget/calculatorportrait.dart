@@ -55,6 +55,7 @@ class _CalculatePortraitState extends State<CalculatePortrait> {
   Widget build(BuildContext context) {
     return Scaffold(
     appBar: AppBar(
+      foregroundColor: Color.fromRGBO(191, 144, 0, 1),
       title: Text(widget.ttile),
     ),
       body: Column(
@@ -63,6 +64,7 @@ class _CalculatePortraitState extends State<CalculatePortrait> {
           Expanded(
             flex: 2,
            child: Container(
+            color: Color.fromRGBO(191, 144, 0, 1),
              alignment: Alignment.bottomRight,
              child: Padding(
                padding: const EdgeInsets.fromLTRB(15, 15, 15, 30),
